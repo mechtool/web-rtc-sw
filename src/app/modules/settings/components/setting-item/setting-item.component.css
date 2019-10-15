@@ -1,0 +1,19 @@
+.setting-type {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.setting-name{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.radio-group mat-radio-button{
+   margin-left: 16px;
+}
+mat-form-field.form-field{
+    width: 150px!important;
+    height: 40px;
+}

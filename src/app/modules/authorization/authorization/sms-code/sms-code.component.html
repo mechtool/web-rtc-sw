@@ -1,0 +1,13 @@
+<mat-card class="sms-form-container" (keydown.enter)="onClickPhoneCodeButton()">
+	<mat-form-field class="enter-verification-code" appearance="outline">
+		<mat-label>Sms код *</mat-label>
+		<input  type="text" matInput placeholder="Sms код" [formControl]="codeSmsControl" >
+		<mat-error *ngIf="codeSmsControl.hasError('pattern') && !codeSmsControl.hasError('required')"> 6 цифр</mat-error>
+		<mat-error *ngIf="codeSmsControl.hasError('required')">Обязательный</mat-error>
+	</mat-form-field>
+	<mat-error class="sms-code-error" *ngIf="smsCodeError">{{smsCodeError}}</mat-error>
+	<div class="button-group">
+		<button class="phone-code-button" type="submit" mat-raised-button color="primary" [style.cursor]="cursor"  [disabled]="codeSmsControl.invalid || activeStage" (click)="onClickPhoneCodeButton()">Отправить</button>
+		<button mat-raised-button (click)="onCancelButton()">Отмена</button>
+	</div>
+</mat-card>

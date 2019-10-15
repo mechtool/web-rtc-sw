@@ -1,0 +1,25 @@
+.contact-container{
+    position: relative;
+    margin: 10px;
+}
+.contact-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.web-indicator{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -5px;
+    left: -4px;
+}
+.contact-img{
+    width: 24px;
+    height: 24px;
+}
+.contact-name{
+    padding-left: 6px;
+    line-height: initial;
+}

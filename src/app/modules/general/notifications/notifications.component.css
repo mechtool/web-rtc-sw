@@ -1,0 +1,29 @@
+div.notifications-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+div.notifications-container.overlay{
+    height: 100%;
+    width: 100%;
+    background: #060606b0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+mat-card.permission-card{
+    max-width: 500px;
+    width: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: initial;
+}
+.permission-text{
+    margin-bottom: 16px;
+}

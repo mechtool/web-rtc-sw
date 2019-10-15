@@ -1,0 +1,40 @@
+<div class="setting-container" [ngSwitch]="context.type">
+	<div class="setting-type type-select" *ngSwitchCase="0">
+		<div class="setting-name">{{context.optionName}}</div>
+		<mat-form-field class="form-field">
+			<mat-label>{{context.label}}</mat-label>
+			<mat-select [(value)]="context.value" (selectionChange)="context.listener(context.value)">
+				<mat-option *ngFor="let option of context.options" [value]="option.text">
+					{{option.text}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+	<div class="setting-type type-autocomplete" *ngSwitchCase="1">
+	
+	</div>
+	<div class="setting-type type-checkbox" *ngSwitchCase="2">
+	
+	</div>
+	<div class="setting-type type-slide-toggle" *ngSwitchCase="3">
+	
+	</div>
+	<div class="setting-type type-button" *ngSwitchCase="4">
+		<div class="setting -name">{{context.text}}</div>
+		<button mat-icon-button (click)="context.listener()">
+			<mat-icon>{{context.icon}}</mat-icon>
+		</button>
+	</div>
+	<div class="setting-type type-color-widget" *ngSwitchCase="5">
+		<div class="setting-name">{{context.optionName}}</div>
+		<app-color-theme></app-color-theme>
+	</div>
+	<div class="setting-type type-radio-buttons" *ngSwitchCase="6">
+		<div class="setting-name">{{context.optionName}}</div>
+		<span class="example-spacer"></span>
+		<mat-radio-group class="radio-group">
+			<mat-radio-button  [checked]="radio.checked" *ngFor="let radio of context.radioGroup" [value]="radio.text">{{radio.text}}</mat-radio-button>
+		</mat-radio-group>
+	
+	</div>
+</div>

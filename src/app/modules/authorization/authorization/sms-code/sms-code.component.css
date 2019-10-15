@@ -1,0 +1,7 @@
+.button-group{
+    display: flex;
+    justify-content: space-between;
+}
+.sms-code-error{
+    margin-bottom: 16px;
+}

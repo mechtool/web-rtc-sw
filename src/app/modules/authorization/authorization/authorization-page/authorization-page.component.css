@@ -1,0 +1,15 @@
+.auth-container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.auth-card{
+    padding: 16px;
+}
+.first-block.mail{
+
+}

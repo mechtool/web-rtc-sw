@@ -1,0 +1,36 @@
+.phone-container{
+    padding: 32px;
+}
+.phone-form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.phone-block mat-form-field{
+    margin-bottom: 10px;
+}
+mat-select-trigger{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+mat-select-trigger .state-img{
+    margin-right: 6px;
+}
+mat-option img.state-img{
+    position: relative !important;
+    top: 5px!important;
+    margin-right: 6px!important;
+}
+.button-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.phone-code-error{
+    margin-bottom: 16px;
+
+}

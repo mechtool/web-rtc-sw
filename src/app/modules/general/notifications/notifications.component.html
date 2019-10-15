@@ -1,0 +1,7 @@
+<div class="notifications-container" [ngClass]="{overlay : notifications.length }">
+	<mat-card class="permission-card" *ngFor="let context of notifications" >
+		<div class="permission-text" [style.color]="context.color">{{context.text}}</div>
+		<button mat-raised-button [ngClass]= "context.type" [disabled]="context.disabled" [color]="'primary'" (click)="context.listener($event)">Запросить разрешение</button>
+	</mat-card>
+</div>
+

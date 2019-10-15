@@ -1,0 +1,16 @@
+<ng-template #contactTemplate>
+	<div class="web-indicator" [style.backgroundColor]="context.contact.statusColor"></div>
+	<div class="contact-body">
+		<img class="contact-img" [src]="context.contact.photoURL" [style.backgroundColor]="context.contact.imgColor">
+		<div class="contact-name">{{context.contact.name || context.contact.displayName || context.contact.phoneNumber || context.contact.email}}</div>
+	</div>
+</ng-template>
+<div class="contact-container" *ngIf="context.options && context.options.menu" [matMenuTriggerFor]="menu">
+	<ng-container [ngTemplateOutlet]="contactTemplate"></ng-container>
+</div>
+<div class="contact-container" *ngIf="!(context.options && context.options.menu)">
+	<ng-container [ngTemplateOutlet]="contactTemplate"></ng-container>
+</div>
+<mat-menu #menu="matMenu" [ngSwitch]="context.options.menu">
+	<button mat-menu-item (click)="onDeleteItem()" *ngSwitchCase="1">Удалить</button>
+</mat-menu>
