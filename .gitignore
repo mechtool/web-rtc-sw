@@ -52,5 +52,5 @@ package.json
 /.firebase/
 /browserslist
 /bs-config.json
-!/database.rules.json
-!/firebase.json
+/database.rules.json
+/firebase.json
