@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthorizationPageComponent} from "../authorization-page/authorization-page.component";
 import {FormControl, Validators} from "@angular/forms";
 import { Router} from "@angular/router";
+import {AppContextService} from "../../../../services/app-context.service";
 
 @Component({
   selector: 'app-sms-code',
@@ -17,17 +17,18 @@ export class SmsCodeComponent implements OnInit {
     public codeSmsControl = new FormControl('', [Validators.required, Validators.pattern('[0-9]{6}')]);
     constructor(
         public router : Router,
-        private authComp : AuthorizationPageComponent) {}
+        public appContext : AppContextService
+    ) {}
     
     onClickPhoneCodeButton(){
-	this.authComp.confirmation.confirm(this.codeSmsControl.value).then(res => {
+	this.appContext.confirmation.confirm(this.codeSmsControl.value).then(res => {
 	     //Код подтверждения верный, произойдет инициализация пользователя приложения "см. app.component this.appContext.user.subscribe()"
 	    this.smsCodeError = 'Код подтверждения верный.';
 	    
 	}).catch(err => {
 	    this.smsCodeError = this.errors[err.code] || 'Ошибка кода подтверждения.';
 	}).finally(()=> {
-	    this.authComp.confirmation = undefined;
+	    this.appContext.confirmation = undefined;
 	})
     }
     onCancelButton(){

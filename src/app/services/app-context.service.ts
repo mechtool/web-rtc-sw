@@ -10,6 +10,10 @@ import {Contact} from "../Classes/MainClasses";
 export class AppContextService {
     //переменная для открытого ключа приложения
     public apiKey;
+    //Верификатор рекапчи
+    public recaptchaVerifier;
+    //Объект подтверждения при аутентификации
+    public confirmation : any;
     //аппаратные средства : видеокамера, микрофон, динамики
     public hardware : BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
     //коллекция контактов сообщения

@@ -2,7 +2,7 @@ import {Component, NgZone} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthFirebaseService} from "../../../../services/auth-firebase.service";
 import {Router} from "@angular/router";
-import {AuthorizationPageComponent} from "../authorization-page/authorization-page.component";
+import {AppContextService} from "../../../../services/app-context.service";
 
 @Component({
   selector: 'app-phone-number',
@@ -19,15 +19,15 @@ export class PhoneNumberComponent  {
     public errors = {"auth/captcha-check-failed":"Проверка рекапчи отрицательна." , "auth/invalid-phone-number" : "Некорректный номер телефона.", "auth/missing-phone-number" : "Отсутствует номер телефона.", "auth/quota-exceeded" : "Превышена квота.", "auth/user-disabled" : "Пользователь неактивен.", "auth/operation-not-allowed" : "Опрерация не разрешена."};
     
     public states = [
-	{class : 'us', code : '+1', src : '/assets/flags-24/002-flag.png'},
-	{class : 'arm', code : '+374', src : '/assets/flags-24/007-armenia.png'},
-	{class : 'ru', code : '+7', src : '/assets/flags-24/001-russia.png'},
-	{class : 'kz', code : '+7', src : '/assets/flags-24/006-kazakhstan.png'},
-	{class : 'geo', code : '+995', src : '/assets/flags-24/009-georgia.png' },
-	{class : 'de', code : '+49', src : '/assets/flags-24/004-germany.png'},
-	{class : 'uk', code : '+380', src : '/assets/flags-24/003-ukraine.png'},
-	{class : 'bel', code : '+375', src : '/assets/flags-24/005-belarus.png'},
-	{class : 'est' , code : '+372', src : '/assets/flags-24/008-estonia.png'},
+	{class : 'us', code : '+1', src : '/assets/flags-24/002-flag.png', alt : 'Флаг Америки'},
+	{class : 'arm', code : '+374', src : '/assets/flags-24/007-armenia.png', alt : 'Флаг Армении'},
+	{class : 'ru', code : '+7', src : '/assets/flags-24/001-russia.png', alt : 'Флаг России'},
+	{class : 'kz', code : '+7', src : '/assets/flags-24/006-kazakhstan.png', alt : 'Флаг Казахстана'},
+	{class : 'geo', code : '+995', src : '/assets/flags-24/009-georgia.png' , alt : 'Флаг Грузии'},
+	{class : 'de', code : '+49', src : '/assets/flags-24/004-germany.png', alt : 'Флаг Германии'},
+	{class : 'uk', code : '+380', src : '/assets/flags-24/003-ukraine.png', alt : 'Флаг Украины'},
+	{class : 'bel', code : '+375', src : '/assets/flags-24/005-belarus.png', alt : 'Флаг Беларуссии'},
+	{class : 'est' , code : '+372', src : '/assets/flags-24/008-estonia.png', alt : 'Флаг Эстонии'},
     ] ;
     
     public selected = this.states.find((el) => {
@@ -40,20 +40,20 @@ export class PhoneNumberComponent  {
     
     constructor(
         public authFirebase : AuthFirebaseService,
-	public authComp : AuthorizationPageComponent,
+	public appContext : AppContextService,
 	private router : Router,
 	private ngZone : NgZone) {
         
         this.phoneGroup.statusChanges.subscribe(res => {
 	    if(this.phoneGroup.status === 'VALID') {
-		this.authComp.recaptchaVerifier = this.authComp.recaptchaVerifier || new this.authFirebase.firebase.auth.RecaptchaVerifier('phone-ready', {
+		this.appContext.recaptchaVerifier = this.appContext.recaptchaVerifier || new this.authFirebase.firebase.auth.RecaptchaVerifier('phone-ready', {
 		    'size': 'invisible',
 		    'callback': this.onClickPhoneButton,
 		    'expired-callback': function (err) {
 		        console.log('Timeout : ')
 		    }
 		}) ;
-		this.authComp.recaptchaVerifier.render()
+		this.appContext.recaptchaVerifier.render()
 		    .then(res => {
 		        console.log('***');
 		    })
@@ -64,13 +64,13 @@ export class PhoneNumberComponent  {
 	    }})
 	}
     onClickPhoneButton(){
-	this.phoneGroup.valid && this.authFirebase.auth.signInWithPhoneNumber(this.phoneGroup.get('codeControl').value.code + this.phoneGroup.get('phoneControl').value, this.authComp.recaptchaVerifier).then((confirmation) => {
+	this.phoneGroup.valid && this.authFirebase.auth.signInWithPhoneNumber(this.phoneGroup.get('codeControl').value.code + this.phoneGroup.get('phoneControl').value, this.appContext.recaptchaVerifier).then((confirmation) => {
 	    //Sms отправлено. Выдать оповещение пользователю о необходимости
 	    // ввести код из полученного сообщения в форму проверки sms кода
 	    // confirmationResult.confirm(code).
-	    this.authComp.confirmation = confirmation;
+	    this.appContext.confirmation = confirmation;
 	    this.ngZone.run(() => {this.router.navigateByUrl('/authorization/sms-code').then(res => {
-	        this.authComp.recaptchaVerifier.clear();
+	        this.appContext.recaptchaVerifier.clear();
 	    }).catch(err => console.error(err))});
 	}).catch(function (err) {
 	    console.error(err);

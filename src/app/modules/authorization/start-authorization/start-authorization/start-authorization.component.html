@@ -1,13 +1,13 @@
 <div class="start-authorisation-container">
 	<div class="app-logo-container">
-		<img class="app-logo-img" src="/assets/favicon/android-chrome-512x512.png">
+		<img class="app-logo-img" alt="Логотип приложения" src="/assets/favicon/android-chrome-512x512.png">
 	</div>
 	<div class="progress-container" *ngIf="user">
 		<mat-progress-bar  mode="indeterminate" [color]="'primary'"></mat-progress-bar>
 	</div>
 	<div class="app-social-container" *ngIf="!user">
 		<a *ngFor="let icon of images" [routerLink]="icon.link">
-			<img class="social-img" [src]="icon.src" [matTooltip]="icon.tip">
+			<img class="social-img" [alt]="icon.alt" [src]="icon.src" [matTooltip]="icon.tip">
 		</a>
 	</div>
 </div>

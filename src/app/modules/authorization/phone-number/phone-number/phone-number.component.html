@@ -5,12 +5,12 @@
 				<mat-label>Код страны</mat-label>
 				<mat-select formControlName="codeControl" [(value)]="selected" >
 					<mat-select-trigger class="phone-code-trigger">
-						<img class="state-img"  [src]="selected.src">
+						<img class="state-img" [alt]="selected.alt"  [src]="selected.src">
 						<span class="location">{{selected.class.toUpperCase()}}</span>
 						<span class="state-code">{{selected.code}}</span>
 					</mat-select-trigger>
 					<mat-option *ngFor="let state of states" [value]="state">
-						<img class="state-img" [src]="state.src">
+						<img class="state-img" [alt]="state.alt" [src]="state.src">
 						<span class="location">{{state.class.toUpperCase()}}</span>
 						<span class="state-code">{{state.code}}</span>
 					</mat-option>
