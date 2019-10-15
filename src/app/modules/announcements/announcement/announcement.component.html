@@ -1,0 +1,5 @@
+<div class="announcement-container">
+	<div class="activated-mark" [style.backgroundColor]="activatedMarkColor"></div>
+	<div class="date-block">{{context.date | date :'short' : '' : 'ru'}}</div>
+	<div class="contains" [innerHTML]="this.sanitizer.bypassSecurityTrustHtml(context.content)"></div>
+</div>

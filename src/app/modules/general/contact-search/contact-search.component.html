@@ -1,0 +1,10 @@
+<mat-form-field class="contact-search-field" appearance="outline">
+	<mat-label>Поиск контакта</mat-label>
+	<input matInput placeholder="Mail, Имя, телефон" aria-label="Поиск контакта" [matAutocomplete]="autoContact"  [formControl]="contactControl" (input)="onKeyup()" required>
+	<mat-autocomplete #autoContact="matAutocomplete" >
+		<mat-option *ngFor="let contact of resultCollection | async" [value]="contact">
+			<app-contact [context]="{contact : contact, options : {menu : 0}}"></app-contact>
+		</mat-option>
+	</mat-autocomplete>
+	<mat-error *ngIf="contactControl.hasError('required')">Обязательный</mat-error>
+</mat-form-field>

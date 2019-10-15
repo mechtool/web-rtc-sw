@@ -1,0 +1,3 @@
+<div class="announcement-base" [style.height.px]="this.appHeight">
+	<app-announcement *ngFor="let item of this.appContext.announcements | async" [context]="item"></app-announcement>
+</div>

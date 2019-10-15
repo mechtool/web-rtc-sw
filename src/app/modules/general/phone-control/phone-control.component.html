@@ -1,0 +1,28 @@
+<form class="phone-form" [formGroup]="phoneGroup">
+	<mat-form-field class="phone-code-field" appearance="outline">
+		<mat-label>Код страны</mat-label>
+		<mat-select formControlName="codeControl" [(value)]="selected" >
+			<mat-select-trigger class="phone-code-trigger">
+				<img class="state-img"  [src]="selected.src">
+				<span class="location">{{selected.class.toUpperCase()}}</span>
+				<span class="state-code">{{selected.code}}</span>
+			</mat-select-trigger>
+			<mat-option *ngFor="let state of states" [value]="state">
+				<img class="state-img" [src]="state.src">
+				<span class="location">{{state.class.toUpperCase()}}</span>
+				<span class="state-code">{{state.code}}</span>
+			</mat-option>
+		</mat-select>
+		<mat-error *ngIf="phoneGroup.get('codeControl').hasError('required')">Обязательный</mat-error>
+	</mat-form-field>
+	<mat-form-field  class="phone-field" appearance="outline">
+		<mat-label>Номер телефона</mat-label>
+		<input matInput formControlName="phoneControl" maxlength="10"  placeholder="Номер">
+		<button mat-icon-button matSuffix [disabled]="phoneGroup.get('phoneControl').hasError('pattern') || phoneGroup.get('phoneControl').hasError('required')" (click)="onAddContact()">
+			<mat-icon class="add-contact-icon" matTooltip="Добавить" svgIcon="person_add"></mat-icon>
+		</button>
+		<mat-hint>Телефон контакта</mat-hint>
+		<mat-error *ngIf="phoneGroup.get('phoneControl').hasError('pattern') && !phoneGroup.get('phoneControl').hasError('required')"> 10 цифр</mat-error>
+		<mat-error *ngIf="phoneGroup.get('phoneControl').hasError('required')">Обязательный</mat-error>
+	</mat-form-field>
+</form>

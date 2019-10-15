@@ -1,0 +1,14 @@
+.phone-form{
+    display: flex;
+    justify-content: stretch;
+    flex-wrap: wrap;
+}
+.phone-code-field{
+    width: 30% ;
+    min-width: 110px;
+    margin-right: 8px;
+}
+.phone-field{
+    flex: 1 1 0;
+    min-width: 55%;
+}

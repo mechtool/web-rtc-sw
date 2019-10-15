@@ -1,0 +1,20 @@
+.announcement-container{
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.date-block{
+    margin-right: 8px;
+    white-space: nowrap;
+}
+.activated-mark{
+    height: 10px;
+    margin-right: 8px;
+    flex: 0 0 10px;
+    border-radius: 50%;
+}
+.announcement-container:hover{
+    background-color: #ececec;;
+}

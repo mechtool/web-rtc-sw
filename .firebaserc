@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "web-rtc-sw"
+  },
+  "targets": {
+    "web-rtc-sw": {
+      "hosting": {
+        "dev": [
+          "web-rtc-dev"
+        ],
+        "prod": [
+          "web-rtc-prod"
+        ]
+      }
+    }
+  }
+}

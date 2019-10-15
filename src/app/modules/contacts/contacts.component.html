@@ -1,0 +1,5 @@
+<mat-card class="contacts-container">
+	<app-contact-search [collection]="this.appContext.appUsers"></app-contact-search>
+	<span class="contacts-not" *ngIf="!contactsLength">У вас пока нет контактов...</span>
+	<app-contact *ngFor="let contact of appContext.contacts | async"></app-contact>
+</mat-card>

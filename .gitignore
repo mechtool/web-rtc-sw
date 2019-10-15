@@ -44,3 +44,13 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+.gitignore
+index.js
+package-lock.json
+package.json
+/functions/
+/.firebase/
+/browserslist
+/bs-config.json
+!/database.rules.json
+!/firebase.json

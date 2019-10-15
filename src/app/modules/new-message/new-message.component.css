@@ -1,0 +1,85 @@
+/*--------------------video-------------------------------------------------*/
+:host{
+    height: 100%;
+}
+
+.new-message-container{
+    height: 100%;
+}
+.choose-contacts-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: #ffffffc7;
+}
+.choose-start-call{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.added-contacts-name{
+    display: flex;
+    justify-content: flex-start;
+}
+.added-contacts-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.added-contacts-container app-contact{
+    cursor: pointer;
+}
+.contacts-container{
+    padding : 0 16px 16px;
+    width: 60%;
+}
+li.added-contacts{
+    margin: 16px 0;
+}
+.contacts{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    color: white;
+}
+.no-contacts{
+    color : #bfbfbf
+}
+.added-contacts-container app-contact:hover{
+    background: #eeeeee;
+}
+.button-call-block{
+    flex: 1 1 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button-call-block mat-icon{
+    position: relative;
+    top: -2px;
+}
+
+@media(max-width: 430px){
+    .choose-start-call{
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    .message-header{
+        margin-top: 16px;
+    }
+    .contacts-container{
+        width: 80%;
+    }
+}
+
+@media (max-width: 300px) {
+  .message-header{
+      display: none;
+  }
+}

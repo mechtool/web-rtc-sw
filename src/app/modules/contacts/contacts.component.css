@@ -1,0 +1,12 @@
+:host{
+    position: relative;
+    flex: 1 1 0;
+}
+.contacts-not{
+    color: #bebebe;
+}
+.contacts-container{
+    position: relative;
+    height: calc(100%);
+    box-sizing: border-box;
+}

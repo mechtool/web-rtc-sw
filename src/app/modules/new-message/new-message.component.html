@@ -1,0 +1,26 @@
+<div class="new-message-container">
+	<div class="choose-contacts-container">
+		<div class="contacts-container">
+			<div class="choose-start-call">
+				<div class="message-header" style="font-size: 22px!important;" [style.color]="colorThemeService.getThemeColor('color')" >Новое сообщение</div>
+				<li class="added-contacts" [style.color]="colorThemeService.getThemeColor('color')">Выбор контакта</li>
+			</div>
+			<div class="element-control-container" [ngSwitch]="callModel">
+				<app-phone-control class="smsCall" *ngSwitchCase="0"></app-phone-control>
+				<app-contact-search class="pushCall" *ngSwitchCase="1" [collection]="this.appContext.contacts" ></app-contact-search>
+			</div>
+			<div class="added-contacts-name">
+				<li class="added-contacts" [style.color]="colorThemeService.getThemeColor('color')">Выбранные контакты</li>
+			</div>
+			<div class="added-contacts-container">
+				<span class="no-contacts" *ngIf="!messageContacts.length">Контакты пока не выбраны...</span>
+				<app-contact *ngFor="let context of messageContacts" [context]="context" (onDelete)="onDeleteItem($event)"></app-contact>
+			</div>
+		</div>
+		<div class="button-call-block" [style.backgroundColor]="colorThemeService.getThemeColor('light')">
+			<button mat-fab [color]="'accent'" [disabled]="!messageContacts.length">
+				<mat-icon>call</mat-icon>
+			</button>
+		</div>
+	</div>
+</div>

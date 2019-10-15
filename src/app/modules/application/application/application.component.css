@@ -1,0 +1,45 @@
+:host{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    position: relative;
+}
+.app-container{
+    position: relative;
+}
+mat-toolbar.app-toolbar{
+   z-index: 2;
+    box-shadow: 0 0 20px #acacac;
+    position: relative;
+}
+.outlet-container{
+    flex : 1 1 0;
+}
+.settings-icon{
+    outline: none;
+    cursor: pointer;
+    top: 1px;
+}
+.toolbar-raised-button,.add-message-button{
+    margin-right: 8px;
+}
+mat-icon.active{
+    background: #dedede;
+}
+mat-icon{
+    position: relative!important;
+    top: -2px!important;
+}
+a.toolbar-icon-anchor{
+    text-decoration: none;
+    color: inherit !important;
+}
+/*-----------------медиаточки------------------*/
+@media (max-width: 400px) {
+:host /deep/ mat-toolbar app-contact .contact-name{
+    visibility: hidden;
+    position: absolute;
+}
+}

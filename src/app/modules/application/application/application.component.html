@@ -1,0 +1,25 @@
+<div class="app-container" [ngSwitch]="interface">
+	<mat-toolbar class="app-toolbar" [color]="'primary'">
+		<button class="toolbar-raised-button" [color]="'primary'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="button.link" mat-raised-button fxShow.xs="false" fxShow="true" [matTooltip]="button.tip"  *ngFor="let button of buttons">{{button.text}}</button>
+		<button class="toolbar-icon-button" mat-icon-button fxShow.xs="true" fxShow="false" [routerLink]="button.link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngFor="let button of buttons" [matTooltip]="button.tip" >
+			<mat-icon >{{button.icon}}</mat-icon>
+		</button>
+		<button class="toolbar-icon-button new-message" mat-icon-button  [routerLink]="'/application/new-message'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [matTooltip]="'Новое сообщение'" >
+			<mat-icon >add</mat-icon>
+		</button>
+		<span class="example-spacer"></span>
+		<a class="toolbar-icon-anchor" routerLink="/application/user-data"  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+			<app-contact  [context]="appUser"></app-contact>
+		</a>
+		<button class="toolbar-icon-button" mat-icon-button *ngFor="let button of rightButtons" [matTooltip]="button.tip" [routerLink]="button.link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+			<mat-icon class="settings-icon"  [svgIcon]="button.icon" [matBadge]="button.badge ? button.badge  : ''" [matBadgeColor]="'accent'" matBadgeSize="small"></mat-icon>
+		</button>
+	</mat-toolbar>
+</div>
+<div #outletContainer class="outlet-container" [@routerTransition]="getState(out)">
+	<router-outlet #out="outlet"></router-outlet>
+</div>
+<div class="notification-base-container">
+	<app-notifications></app-notifications>
+</div>
+
