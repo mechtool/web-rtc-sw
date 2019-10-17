@@ -6,9 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./authorization-page.component.css']
 })
 export class AuthorizationPageComponent implements OnInit {
-    
-    public recaptchaVerifier;
-    public confirmation : any;
 
     constructor() { }
 
