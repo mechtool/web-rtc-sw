@@ -1,5 +1,4 @@
 {
-  "publicKey" : "BA0UUcUN0dGmybgfjMtL3Bx65n2sSJ8VI3yTLiie_gA-_sd9I4nbRJtBD686MMZzOYiQmDwLGBkQmIn5MT3Bay4",
-  "privateKey": "aOHoq61hyRolU9W6oRCidBtxHhYi6oOhcs5BBK3vEAU",
-  "firebaseMessagingKey" : "BJ58ZwsFZYxOUUHrTuZIqh3rZ711XefQm5r0yRqTy1pNUEjKNiH8qmtqtJlL8_DzVDREiz84u0N_yizwyeAgu1g"
+  "publicKey":"BEXzJo7JRG3QPjYrUNqplvHq5W4NeQz2CzoKWhVCYH1Wct20vHkREYR-svHs3MQ5aGgN9Y6X0RCX5l9DlgJ22w4","privateKey":"q7L2-i1cabnc7yGHdScivuUvvEaeVgXhSZDWiDh_nF8",
+  "firebaseMessagingPublicKey" : "BLlrfh-qJjD3AgTw7MuCySqhWuA7YF1-3KYKD6M89_S40LLly4jklDKT4IVpc6JMCZYLYSQu71NR5DzUKEe1GN0"
 }
